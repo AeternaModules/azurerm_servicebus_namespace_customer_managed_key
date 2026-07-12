@@ -1,3 +1,7 @@
+output "servicebus_namespace_customer_managed_keys_id" {
+  description = "Map of id values across all servicebus_namespace_customer_managed_keys, keyed the same as var.servicebus_namespace_customer_managed_keys"
+  value       = { for k, v in azurerm_servicebus_namespace_customer_managed_key.servicebus_namespace_customer_managed_keys : k => v.id }
+}
 output "servicebus_namespace_customer_managed_keys_infrastructure_encryption_enabled" {
   description = "Map of infrastructure_encryption_enabled values across all servicebus_namespace_customer_managed_keys, keyed the same as var.servicebus_namespace_customer_managed_keys"
   value       = { for k, v in azurerm_servicebus_namespace_customer_managed_key.servicebus_namespace_customer_managed_keys : k => v.infrastructure_encryption_enabled }
